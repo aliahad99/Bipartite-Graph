@@ -3,20 +3,26 @@ This code is to check whether a graph is bipartite or not
 
 
 #include <stdio.h>
+
 #include <stdlib.h>
 
+
 struct node
+
 {
+
 	int data;
 	struct Node *next;
 };
 
 struct queue
+
 {
 	struct node *front, *rear;
 };
 
 struct queue* New_Queue(void)
+
 {
 	struct queue *q = (struct queue*)malloc(sizeof(struct queue));
 	q->front = q->rear = NULL;
@@ -24,6 +30,7 @@ struct queue* New_Queue(void)
 }
 
 struct node *create_node(int data)
+
 {
    struct node *N = (struct node *)malloc(sizeof(struct node));
 	N->data = data;
@@ -32,6 +39,7 @@ struct node *create_node(int data)
 }
 
 void Enqueue(struct queue *q, int data)
+
 {
    struct node *newnode = create_node(data);
 
@@ -46,6 +54,7 @@ void Enqueue(struct queue *q, int data)
 }
 
 int Dequeue(struct queue *q)
+
 {
 	if (q->front == NULL)
 		return 0;
@@ -64,6 +73,7 @@ int Dequeue(struct queue *q)
 
 
 int Bipartite_Util(int *g, int n, int index, int *color)
+
 {
 	color[index] = 1;
 
@@ -96,6 +106,7 @@ int Bipartite_Util(int *g, int n, int index, int *color)
 
 
 int Check_Bipartite(int *g, int n)
+
 {
 	int *temp = (int *)malloc(n * sizeof(int));
 
@@ -111,6 +122,7 @@ int Check_Bipartite(int *g, int n)
 }
 
 int main(void)
+
 {
 	int N, i;
 	scanf("%d", &N);
